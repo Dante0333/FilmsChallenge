@@ -232,7 +232,7 @@ async function initMap(title) {
         })
       })
 
-      a.setAttribute('class', 'back-button');
+    
     }
   } else {
     movies = await fetchMovies("/api/movies");
@@ -270,7 +270,7 @@ async function initMap(title) {
       }
     })
 
-    a.setAttribute('class', 'back-button-hide');
+    
   }
 
   await sleep(2000);
@@ -279,9 +279,12 @@ async function initMap(title) {
   if (title) {
     autocomplete(autoCompl, moviesLocations);
     searchMovLoc(false);
+    
+    a.setAttribute('class', 'back-button');
   }else{
     autocomplete(autoCompl, moviesTitles);
     searchMovLoc(true);
+    a.setAttribute('class', 'back-button-hide');
   }
   
   sendMarkers(locationRecords);
