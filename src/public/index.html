@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Locations Films</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://www.gstatic.com/external_hosted/handlebars/v4.7.6/handlebars.min.js"></script>
+
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  
+    <script id="locator-result-items-tmpl" type="text/x-handlebars-template">
+      {{#each locations}}
+        <li onClick= "initMap('{{title}}'); this.onclick=null;" id="{{title}}" class="location-result" data-location-index="{{index}}">
+          <button class="select-location">
+            <h2 class="name">{{title}} {{info1}}<br></h2>
+          </button>
+          {{#if info2}}
+            <div class="address">{{info2}}<br>{{info3}}<br>{{info4}}<br>{{info5}}</div>
+          {{/if}}
+        </li>
+      {{/each}}
+    </script>
+      
+</head>
+<body>
+
+    <div id="app"></div>
+            
+    <script src="bundle.js"></script>
+    <script src="./js/functions.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6-zk3KeEccDPE-XPW7GPY51auR6KlfUM&callback=initMap&libraries=places,geometry&channel=GMPSB_locatorplus_v4_cA" async defer></script>
+</body>
+</html>
